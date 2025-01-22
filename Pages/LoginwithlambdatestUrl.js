@@ -31,6 +31,7 @@ class LoginwithlambdatestUrl {
         const message = 'Welcome to LambdaTest';
         await this.page.locator(this.input1).fill(message)
         await this.page.locator(this.get_checked_value).click()
+        await this.page.locator(this.text_message).waitFor({ state: 'visible' });
 
         const displayedMessage = await this.page.locator(this.text_message).textContent();
             if (displayedMessage === message) 

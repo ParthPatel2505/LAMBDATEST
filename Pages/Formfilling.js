@@ -17,7 +17,7 @@ class Formfilling {
         this.address2_field = "//input[@id='inputAddress2']";
         this.state_field = "//input[@id='inputState']";
         this.zip_field = "//input[@id='inputZip']";
-        this.success_message = "//p[contains(text(),'Thanks for contacting us')]";
+        this.success_message = "//p[@class='success-msg hidden']";
     }
     
 
@@ -27,6 +27,8 @@ class Formfilling {
 
     async submitWithoutFilling() {
         await this.page.locator(this.submit_button).click();
+        
+
         const errorVisible = await this.page.locator(this.error_message).isVisible();
         if (errorVisible) {
             console.log("message is displayed");
@@ -52,10 +54,11 @@ class Formfilling {
         await this.page.locator(this.zip_field).fill("390025");
 
         await this.page.locator(this.submit_button).click();
+        await this.page.locator(this.success_message).waitFor({ state: 'visible' });
 
         const successVisible = await this.page.locator(this.success_message).isVisible();
         if (successVisible) {
-            console.log("Success message displayed: Thanks for contacting us, we will get back to you shortly.");
+            console.log("Success message displayed");
         } else {
             console.log("Success message not displayed.");
         }
