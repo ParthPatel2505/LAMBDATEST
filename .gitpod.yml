@@ -12,4 +12,4 @@ tasks:
       npx playwright install
       npx playwright install-deps
       echo "Setup complete!"
-  - command: npx playwright test Testscenario1.spec.js --project=firefox
+  - command: npx playwright test Testscenario1.spec.js --project=chromium
