@@ -6,10 +6,8 @@
 
 tasks:
   - init: |
-      echo "Installing dependencies..."
-      npm install
-      echo "Installing Playwright browsers and dependencies..."
-      npx playwright install
-      npx playwright install-deps
-      echo "Setup complete!"
+      npm install && npx playwright install && npx playwright install-deps
   - command: npx playwright test Testscenario1.spec.js --project=chromium
+ports:
+  - port: 3000
+    onOpen: open-preview
