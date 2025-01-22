@@ -9,6 +9,7 @@ tasks:
       npm install 
       npx playwright install 
       npx playwright install-deps
+      npx playwright install chromium
   - command: |
       npx playwright test --project=chromium
 ports:
