@@ -5,8 +5,5 @@
 # Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
 
 tasks:
-  - init: 
-      npx playwright install
-      npx playwright install-deps
+  - init:  npm install &&  npx playwright install && npx playwright install-deps
   - command: npx playwright test Testscenario1.spec.js --project=chromium
-
