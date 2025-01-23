@@ -26,5 +26,5 @@ RUN apt-get update && apt-get install -y \
 USER gitpod
 
 # Install Node.js dependencies, including Playwright
-RUN npm install && npx playwright install && npx playwright install --with-deps && npm install -g node-ovsx-sign
+RUN npx playwright install && npx playwright install --with-deps && npm install -g node-ovsx-sign
 
