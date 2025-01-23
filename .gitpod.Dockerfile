@@ -1,7 +1,7 @@
 FROM gitpod/workspace-full:latest
 
-# Upgrade npm to the latest version
-RUN npm install -g npm@latest
+# Switch to root user to install dependencies
+USER root
 
 # Install required dependencies for Playwright browsers
 RUN apt-get update && apt-get install -y \
@@ -21,5 +21,5 @@ RUN apt-get update && apt-get install -y \
     libcups2 \
     libdbus-1-3
 
-# Install Playwright and browsers with dependencies
-RUN npx playwright install --with-deps
+# Switch back to the Gitpod user
+USER gitpod
