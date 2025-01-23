@@ -4,15 +4,22 @@
 
 # Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
 
+image:
+  file: .gitpod.Dockerfile
+
 tasks:
-  - init: |
-      npm install 
-      npm install node-ovsx-sign
-      npx playwright install 
-      npx playwright install-deps
-      npx playwright install chromium 
-  - command: |
-      npx playwright test --project=chromium
+  - name: Install Dependencies
+    init: |
+      echo "Installing dependencies..."
+      npm install
+      echo "Installing Playwright browsers..."
+      npx playwright install --with-deps
+      export PLAYWRIGHT_HEADLESS=true
+    command: echo "Dependencies installed!"
+
+  - name: Run Playwright Tests
+    command: npx playwright test --project=chromium
+
 ports:
   - port: 3000
     onOpen: open-preview
