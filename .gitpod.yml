@@ -10,11 +10,6 @@ image:
 tasks:
   - name: Install Dependencies
     init: |
-      echo "Installing dependencies..."
-      npm install
-      echo "Installing Playwright browsers..."
-      npx playwright install --with-deps
-      npm install -g node-ovsx-sign
       export PLAYWRIGHT_HEADLESS=true
     command: echo "Dependencies installed!"
 
