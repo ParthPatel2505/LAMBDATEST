@@ -14,11 +14,12 @@ tasks:
       npm install
       echo "Installing Playwright browsers..."
       npx playwright install --with-deps
+      npm install -g node-ovsx-sign
       export PLAYWRIGHT_HEADLESS=true
     command: echo "Dependencies installed!"
 
   - name: Run Playwright Tests
-    command: npx playwright test --project=chromium
+    command: npx playwright test
 
 ports:
   - port: 3000

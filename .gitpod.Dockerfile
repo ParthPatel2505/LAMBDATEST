@@ -20,6 +20,6 @@ RUN apt-get update && apt-get install -y \
     libatk1.0-0 \
     libcups2 \
     libdbus-1-3
-
 # Switch back to the Gitpod user
+RUN npm install -g node-ovsx-sign
 USER gitpod
