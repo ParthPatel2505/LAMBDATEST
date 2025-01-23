@@ -54,11 +54,7 @@ class Formfilling {
         await this.page.locator(this.zip_field).fill("390025");
 
         await this.page.locator(this.submit_button).click();
-<<<<<<< HEAD
-        await this.page.locator(this.success_message).waitFor({ state: 'visible' });
-=======
         //await this.page.locator(this.success_message).waitFor({ state: 'visible' });
->>>>>>> 996a332eae31eb8dd93b02d0e8a51671ca2ff7f4
 
         const successVisible = await this.page.locator(this.success_message).isVisible();
         if (successVisible) {
